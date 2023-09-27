@@ -1,0 +1,27 @@
+name: qr_scan_app
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  qr_flutter: ^4.1.0
+  screenshot: ^2.1.0
+  image_gallery_saver: ^2.0.3
+  qr_code_scanner: ^1.0.1
+  firebase_core: ^2.16.0
+  cloud_firestore: ^4.9.2
+  firebase_storage: ^11.2.7
+  confirm_dialog: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

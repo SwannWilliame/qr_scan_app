@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1016224121677",
+    "project_id": "qr-app-swann",
+    "storage_bucket": "qr-app-swann.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016224121677:android:abfcd8d4f1060678c36d04",
+        "android_client_info": {
+          "package_name": "com.example.qr_scan_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHslRlcW1pa4BNJ7PUv2iFuSVCpOoRSDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
