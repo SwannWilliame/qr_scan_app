@@ -17,6 +17,7 @@ dependencies:
   cloud_firestore: ^4.9.2
   firebase_storage: ^11.2.7
   confirm_dialog: ^1.0.2
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:

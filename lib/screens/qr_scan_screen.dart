@@ -5,6 +5,7 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_scan_app/components/default_appbar.dart';
 import 'package:qr_scan_app/database/database_managment.dart';
 import 'package:qr_scan_app/screens/scan_result_screen.dart';
+import 'package:qr_scan_app/utils/launch_url.dart';
 
 class QRScanScreen extends StatefulWidget {
   const QRScanScreen({super.key});
@@ -19,7 +20,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
   Barcode? barcode;
   Barcode? lastBarcode;
 
-  SnackBar errorSnackbar = const SnackBar(content: Text("This QR Code does not refere to an existing id..."));
+  SnackBar errorSnackbar = const SnackBar(content: Text("The QR Codes need to be linked to a website"));
 
   @override
   void dispose() {
@@ -72,15 +73,16 @@ class _QRScanScreenState extends State<QRScanScreen> {
           this.barcode=barcode;
         });
         if(mounted){
-          if(await Database().docCheck(barcode.code!)){
-            controller.pauseCamera();
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ScanResultScreen(id: barcode.code!,),));
+          if(barcode.code!.startsWith("http") && lastBarcode?.code != barcode.code!){
+            appLaunchURL(barcode.code!);
+            setState(() {
+              lastBarcode=barcode;
+            });
           }
           else if(lastBarcode == null || lastBarcode?.code != barcode.code!){
             setState(() {
               lastBarcode=barcode;
             });
-            print("scanné");
             ScaffoldMessenger.of(context).showSnackBar(errorSnackbar);
           }
         }
